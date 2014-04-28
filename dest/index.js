@@ -86,7 +86,11 @@
       exportFiles.push(restFiles);
       exportFiles = _.map(_.uniq(exportFiles), function(data) {
         if (_.isArray(data)) {
-          return getMergeFileName(data);
+          if (data.length === 1) {
+            return data[0];
+          } else {
+            return getMergeFileName(data);
+          }
         } else {
           return data;
         }

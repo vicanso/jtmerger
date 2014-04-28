@@ -51,7 +51,10 @@ class Merger
     exportFiles.push restFiles
     exportFiles = _.map _.uniq(exportFiles), (data) ->
       if _.isArray data
-        getMergeFileName data
+        if data.length == 1
+          data[0]
+        else
+          getMergeFileName data
       else
         data
     exportFiles
