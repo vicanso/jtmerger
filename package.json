@@ -1,7 +1,7 @@
 {
   "name": "jtmerger",
   "description": "merge static files",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dest/index",
   "dependencies": {
     "underscore": "~1.6.0",

@@ -108,6 +108,7 @@
       dataList = [];
       _.each(files, function(file) {
         var group, result, src;
+        dataList.push("/*" + file + "*/");
         file = path.join(rootPath, file);
         src = fs.readFileSync(file, 'utf8');
         if ('.css' === path.extname(file)) {

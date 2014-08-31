@@ -65,7 +65,9 @@ class Merger
     saveFile = path.join rootPath, saveFile
     savePath = path.dirname saveFile
     dataList = []
+
     _.each files, (file) ->
+      dataList.push "/*#{file}*/"
       file = path.join rootPath, file
       src = fs.readFileSync file, 'utf8'
       if '.css' == path.extname file
