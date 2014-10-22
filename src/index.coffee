@@ -101,15 +101,10 @@ getMergeInfo = (staticsDestPath, tmpFiles) ->
   [dest, tmpArr]
 
 getMergeFileName = (files) ->
-  cutName = (file, ext) ->
-    partList = _.compact file.split '/'
-    basename = path.basename partList.pop(), ext
-    partList.push basename
-    partList.join '_'
   tmpArr = []
   tmpNames = []
   ext = path.extname files[0]
-  _.each files, (file) ->
-    tmpNames.push cutName file, ext
-  "/merge/#{tmpNames.join(',')}#{ext}"
+  tmpNames = _.map files, (file) ->
+    path.basename file, ext
+  "/merge/#{tmpNames.join('-')}#{ext}"
 module.exports = Merger

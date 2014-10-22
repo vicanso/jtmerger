@@ -54,8 +54,8 @@ describe 'Merger', ->
       ]
       result = [
         '/components/jquery/dist/jquery.js'
-        '/merge/components_underscore_underscore,components_backbone_backbone.js'
-        '/merge/components_seajs_sea,javascripts_sea_config.js'
-        '/merge/components_jtlazy_load_dest_jtlazy_load,javascripts_home.js'
+        '/merge/underscore-backbone.js'
+        '/merge/sea-sea_config.js'
+        '/merge/jtlazy_load-home.js'
       ]
       assert.equal result.join(''), jtMerger.getMergeExportFiles(files).join ''

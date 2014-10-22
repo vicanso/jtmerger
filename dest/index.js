@@ -156,21 +156,14 @@
   };
 
   getMergeFileName = function(files) {
-    var cutName, ext, tmpArr, tmpNames;
-    cutName = function(file, ext) {
-      var basename, partList;
-      partList = _.compact(file.split('/'));
-      basename = path.basename(partList.pop(), ext);
-      partList.push(basename);
-      return partList.join('_');
-    };
+    var ext, tmpArr, tmpNames;
     tmpArr = [];
     tmpNames = [];
     ext = path.extname(files[0]);
-    _.each(files, function(file) {
-      return tmpNames.push(cutName(file, ext));
+    tmpNames = _.map(files, function(file) {
+      return path.basename(file, ext);
     });
-    return "/merge/" + (tmpNames.join(',')) + ext;
+    return "/merge/" + (tmpNames.join('-')) + ext;
   };
 
   module.exports = Merger;
